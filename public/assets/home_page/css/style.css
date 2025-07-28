@@ -1192,6 +1192,7 @@ section {
     /* border-top: 3px solid #3BCC97; */
     /* border-bottom: 3px solid #3BCC97; */
     padding: 30px;
+    background-color: transparent;
     border-radius: 8px;
     /* box-shadow: 0 0 24px 0 rgba(0, 0, 0, 0.12); */
 }
