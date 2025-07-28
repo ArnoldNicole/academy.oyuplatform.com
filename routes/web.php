@@ -9,6 +9,7 @@ use App\Http\Controllers\ClassSchoolController;
 use App\Http\Controllers\ClassSectionController;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\DormitoryController;
 use App\Http\Controllers\Exam\ExamController;
 use App\Http\Controllers\Exam\ExamTimetableController;
 use App\Http\Controllers\Exam\GradeController;
@@ -191,6 +192,16 @@ Route::group(['middleware' => ['Role', 'auth', 'checkSchoolStatus', 'status']], 
         });
         Route::resource('students', StudentController::class);
 
+        /*** Dormitories ***/
+        Route::group(['prefix' => 'dormitories'], static function () {
+            Route::get('/dashboard', [DormitoryController::class, 'dashboard'])->name('dormitories.dashboard');
+            Route::get('/history', [DormitoryController::class, 'history'])->name('dormitories.history');
+            Route::get('/{dormitory}/allocate', [DormitoryController::class, 'allocate'])->name('dormitories.allocate');
+            Route::post('/{dormitory}/allocate', [DormitoryController::class, 'storeAllocation'])->name('dormitories.store-allocation');
+            Route::post('/allocations/{allocation}/checkout', [DormitoryController::class, 'checkout'])->name('dormitories.checkout');
+            Route::post('/allocations/{allocation}/transfer', [DormitoryController::class, 'transfer'])->name('dormitories.transfer');
+        });
+        Route::resource('dormitories', DormitoryController::class);
 
         /*** Timetable ***/
         Route::group(['prefix' => 'timetable'], static function () {

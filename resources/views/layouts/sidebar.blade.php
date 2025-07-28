@@ -122,7 +122,50 @@
             </li>
         @endcan
 
+        {{-- dormitories --}}
+        @canany(['dormitory-create', 'dormitory-list', 'dormitory-edit', 'dormitory-delete'])
+            <li class="nav-item">
+                <a class="nav-link" data-toggle="collapse" href="#dormitory-menu" aria-expanded="false" aria-controls="dormitory-menu" data-access="@hasFeatureAccess('Dormitory Management')">
+                    <span class="menu-title">{{ __('dormitories') }}</span>
+                    <i class="fa fa-building menu-icon"></i>
+                </a>
+                <div class="collapse" id="dormitory-menu">
+                    <ul class="nav flex-column sub-menu">
+                        @can('dormitory-list')
+                            <li class="nav-item">
+                                <a href="{{ route('dormitories.dashboard') }}" class="nav-link" data-access="@hasFeatureAccess('Dormitory Management')">
+                                    {{ __('dashboard') }}
+                                </a>
+                            </li>
+                        @endcan
+                        
+                        @can('dormitory-list')
+                            <li class="nav-item">
+                                <a href="{{ route('dormitories.index') }}" class="nav-link" data-access="@hasFeatureAccess('Dormitory Management')">
+                                    {{ __('manage_dormitories') }}
+                                </a>
+                            </li>
+                        @endcan
 
+                        @can('dormitory-create')
+                            <li class="nav-item">
+                                <a href="{{ route('dormitories.create') }}" class="nav-link" data-access="@hasFeatureAccess('Dormitory Management')">
+                                    {{ __('add_dormitory') }}
+                                </a>
+                            </li>
+                        @endcan
+
+                        @can('dormitory-list')
+                            <li class="nav-item">
+                                <a href="{{ route('dormitories.history') }}" class="nav-link" data-access="@hasFeatureAccess('Dormitory Management')">
+                                    {{ __('allocation_history') }}
+                                </a>
+                            </li>
+                        @endcan
+                    </ul>
+                </div>
+            </li>
+        @endcanany
 
         {{-- timetable --}}
         @if(Auth::user()->hasRole('Teacher'))

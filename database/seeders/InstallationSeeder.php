@@ -70,7 +70,7 @@ class InstallationSeeder extends Seeder {
             ...self::permission('package'),
             ...self::permission('addons'),
             ...self::permission('guidance'),
-
+            ...self::permission('dormitory'),
 
             ...self::permission('assignment'),
             ['name' => 'assignment-submission'],
@@ -203,6 +203,11 @@ class InstallationSeeder extends Seeder {
             'guidance-create',
             'guidance-edit',
             'guidance-delete',
+
+            'dormitory-list',
+            'dormitory-create',
+            'dormitory-edit',
+            'dormitory-delete',
 
         ];
         $role->syncPermissions($superAdminHasAccessTo);
@@ -389,6 +394,11 @@ class InstallationSeeder extends Seeder {
             'shift-edit',
             'shift-delete',
 
+            'dormitory-list',
+            'dormitory-create',
+            'dormitory-edit',
+            'dormitory-delete',
+
             'approve-leave',
         ];
 
@@ -492,6 +502,7 @@ class InstallationSeeder extends Seeder {
             ['name' => 'Expense Management', 'is_default' => 0],
             ['name' => 'Staff Leave Management', 'is_default' => 0],
             ['name' => 'Fees Management', 'is_default' => 0],
+            ['name' => 'Dormitory Management', 'is_default' => 0],
         ];
 
         foreach ($features as $key => $feature) {

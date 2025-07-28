@@ -150,6 +150,10 @@ class Students extends Model {
         return $this->hasMany(FeesPaid::class, 'student_id')->withTrashed();
     }
 
+    public function dormitoryAllocations() {
+        return $this->hasMany(DormitoryAllocation::class, 'student_id');
+    }
+
 
     public function getFirstNameAttribute() {
         $firstName = '';
