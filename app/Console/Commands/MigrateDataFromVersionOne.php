@@ -117,7 +117,7 @@ class MigrateDataFromVersionOne extends Command
             'support_phone' => $old_school->phone,
             'support_email' => $old_school->email,
             'tagline' => $old_school->school_info,
-            'logo' => 'https://v2.edusphere.qtechafrica.com/storage/6680054b284d83.821879391719665995.png',
+            'logo' => 'https://v2.oyuacademy.qtechafrica.com/storage/6680054b284d83.821879391719665995.png',
             'admin_id' => $new_school_admin->id,
             'status' => 1,
         ]);
@@ -125,7 +125,7 @@ class MigrateDataFromVersionOne extends Command
 
     private function createSchoolSettings(School $school)
     {
-        $settings = [["name" => "school_name", "data" => $school->name, "type" => "string",], ["name" => "school_email", "data" => $school->support_email, "type" => "string",], ["name" => "school_phone", "data" => $school->support_phone, "type" => "number",], ["name" => "school_tagline", "data" => $school->tagline, "type" => "string",], ["name" => "school_address", "data" => $school->address, "type" => "string",], ["name" => "session_year", "data" => "1", "type" => "number",], ["name" => "horizontal_logo", "data" => "https://edusphere.qtechafrica.com/storage/horizontal_logo.png", "type" => "file",], ["name" => "vertical_logo", "data" => "https://edusphere.qtechafrica.com/storage/vertical_logo.png", "type" => "file",], ["name" => "timetable_start_time", "data" => "08:00:00", "type" => "time",], ["name" => "timetable_end_time", "data" => "16:20:00", "type" => "time",], ["name" => "timetable_duration", "data" => "00:40:00", "type" => "time",], ["name" => "auto_renewal_plan", "data" => "1", "type" => "integer",], ["name" => "currency_code", "data" => "KES", "type" => "string",], ["name" => "currency_symbol", "data" => "Ksh.", "type" => "string",],];
+        $settings = [["name" => "school_name", "data" => $school->name, "type" => "string",], ["name" => "school_email", "data" => $school->support_email, "type" => "string",], ["name" => "school_phone", "data" => $school->support_phone, "type" => "number",], ["name" => "school_tagline", "data" => $school->tagline, "type" => "string",], ["name" => "school_address", "data" => $school->address, "type" => "string",], ["name" => "session_year", "data" => "1", "type" => "number",], ["name" => "horizontal_logo", "data" => "https://oyuacademy.qtechafrica.com/storage/horizontal_logo.png", "type" => "file",], ["name" => "vertical_logo", "data" => "https://oyuacademy.qtechafrica.com/storage/vertical_logo.png", "type" => "file",], ["name" => "timetable_start_time", "data" => "08:00:00", "type" => "time",], ["name" => "timetable_end_time", "data" => "16:20:00", "type" => "time",], ["name" => "timetable_duration", "data" => "00:40:00", "type" => "time",], ["name" => "auto_renewal_plan", "data" => "1", "type" => "integer",], ["name" => "currency_code", "data" => "KES", "type" => "string",], ["name" => "currency_symbol", "data" => "Ksh.", "type" => "string",],];
         foreach ($settings as $setting) {
             DB::table('school_settings')->insert([
                 'name' => $setting['name'],

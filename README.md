@@ -68,6 +68,6 @@ Start the server
 Default Credentials for Super Admin
 
 ```bash
-  defaultadmin@edusphere.co.ke
+  defaultadmin@oyuacademy.co.ke
   password
 ```

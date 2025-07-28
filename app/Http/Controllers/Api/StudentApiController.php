@@ -740,7 +740,7 @@ class StudentApiController extends Controller {
             $classSectionId = $student->class_section->id;
             $sessionYear = $this->cache->getDefaultSessionYear();
 
-            if (env('DEMO_MODE')) {
+            if (config('app.demo_mode', false)) {
                 $check_student_status = $this->studentOnlineExamStatus->builder()->where('student_id', $student->user_id);
                 if ($check_student_status->count()) {
                     $status_id = $check_student_status->pluck('id');

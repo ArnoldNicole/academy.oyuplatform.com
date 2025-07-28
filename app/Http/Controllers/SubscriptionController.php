@@ -150,7 +150,7 @@ class SubscriptionController extends Controller
 
     public function plan($id)
     {
-        if (env('DEMO_MODE')) {
+        if (config('app.demo_mode', false)) {
             return response()->json(array(
                 'error' => true,
                 'message' => "This is not allowed in the Demo Version.",
@@ -371,7 +371,7 @@ class SubscriptionController extends Controller
 
     public function cancel_upcoming($id = null)
     {
-        if (env('DEMO_MODE')) {
+        if (config('app.demo_mode', false)) {
             return response()->json(array(
                 'error' => true,
                 'message' => "This is not allowed in the Demo Version.",
@@ -778,7 +778,7 @@ class SubscriptionController extends Controller
 
     public function start_immediate_plan($id = null)
     {
-        if (env('DEMO_MODE')) {
+        if (config('app.demo_mode', false)) {
             return response()->json(array(
                 'error' => true,
                 'message' => "This is not allowed in the Demo Version.",
@@ -913,7 +913,7 @@ class SubscriptionController extends Controller
 
     public function update_current_plan(Request $request)
     {
-        if (env('DEMO_MODE')) {
+        if (config('app.demo_mode', false)) {
             return response()->json(array(
                 'error' => true,
                 'message' => "This is not allowed in the Demo Version.",
@@ -1060,7 +1060,7 @@ class SubscriptionController extends Controller
     public function generate_bill($id)
     {
         ResponseService::noPermissionThenSendJson('subscription-change-bills');
-        if (env('DEMO_MODE')) {
+        if (config('app.demo_mode', false)) {
             return response()->json(array(
                 'error' => true,
                 'message' => "This is not allowed in the Demo Version.",

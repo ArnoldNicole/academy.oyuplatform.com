@@ -50,7 +50,7 @@
         if (image.getAttribute('data-custom-image') != null) {
             image.src = image.getAttribute('data-custom-image');
         } else {
-            image.src = "{{asset('/assets/no_image_available.jpg')}}";
+            image.src = "{{asset('/assets/no_image_available.png')}}";
         }
         // console.log('Image failed to load: ' + image.src);
     }
@@ -75,7 +75,7 @@
     observer.observe(document, {childList: true, subtree: true});
 
     const onErrorImage = (e) => {
-        e.target.src = "{{asset('/assets/no_image_available.jpg')}}";
+        e.target.src = "{{asset('/assets/no_image_available.png')}}";
     };
 
     const onErrorImageSidebarHorizontalLogo = (e) => {

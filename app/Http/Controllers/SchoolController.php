@@ -452,7 +452,7 @@ class SchoolController extends Controller {
                 'support_email' => $request->school_support_email,
                 'support_phone' => $request->school_support_phone,
                 'tagline'       => $request->school_tagline,
-                'logo'          => 'no_image_available.jpg',
+                'logo'          => 'no_image_available.png',
                 'status'        => 1
             );
             // Call store function of Schools Repository

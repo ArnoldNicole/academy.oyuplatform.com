@@ -221,7 +221,7 @@ class AddonController extends Controller {
     }
 
     public function subscribe($id) {
-        if (env('DEMO_MODE')) {
+        if (config('app.demo_mode', false)) {
             return response()->json(array(
                 'error'   => true,
                 'message' => "This is not allowed in the Demo Version.",
@@ -292,7 +292,7 @@ class AddonController extends Controller {
     }
 
     public function discontinue($id) {
-        if (env('DEMO_MODE')) {
+        if (config('app.demo_mode', false)) {
             return response()->json(array(
                 'error'   => true,
                 'message' => "This is not allowed in the Demo Version.",

@@ -1,5 +1,10 @@
+/*import Poppins*/
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
+
+
+/*Set poppins*/
 body {
-    font-family: "Open Sans", sans-serif;
+    font-family: "Poppins", sans-serif;
     color: #444444;
 
 }
@@ -498,7 +503,7 @@ h6 {
     height: 100vh;
     /* background: #E9F9F3; */
     background: var(--front-site-theme-color);
-    
+
 }
 #header
 {
@@ -1111,7 +1116,6 @@ section {
     /* border-top: 3px solid #3BCC97; */
     /* border-bottom: 3px solid #3BCC97; */
     padding: 30px;
-    background: #fff;
     width: 100%;
     /* box-shadow: 0 0 24px 0 rgba(0, 0, 0, 0.1); */
 }
@@ -1189,7 +1193,6 @@ section {
     /* border-bottom: 3px solid #3BCC97; */
     padding: 30px;
     border-radius: 8px;
-    background: #fff;
     /* box-shadow: 0 0 24px 0 rgba(0, 0, 0, 0.12); */
 }
 
@@ -1410,8 +1413,7 @@ section {
 }
 
 #footer .footer-top {
-    /* padding: 60px 0 30px 0; */
-    background: #fff;
+     padding: 60px 0 30px 0;
 }
 
 #footer .footer-top .footer-contact {
@@ -1910,7 +1912,7 @@ textarea {
 
 .btn-home-theme:hover {
     background: var(--secondary-color) !important;
-    
+
 }
 
 /* ************************************************************************************************************************ */
