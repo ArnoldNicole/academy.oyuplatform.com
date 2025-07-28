@@ -71,6 +71,7 @@ class InstallationSeeder extends Seeder {
             ...self::permission('addons'),
             ...self::permission('guidance'),
             ...self::permission('dormitory'),
+            ...self::permission('inventory'),
 
             ...self::permission('assignment'),
             ['name' => 'assignment-submission'],
@@ -208,6 +209,11 @@ class InstallationSeeder extends Seeder {
             'dormitory-create',
             'dormitory-edit',
             'dormitory-delete',
+
+            'inventory-list',
+            'inventory-create',
+            'inventory-edit',
+            'inventory-delete',
 
         ];
         $role->syncPermissions($superAdminHasAccessTo);
@@ -399,6 +405,11 @@ class InstallationSeeder extends Seeder {
             'dormitory-edit',
             'dormitory-delete',
 
+            'inventory-list',
+            'inventory-create',
+            'inventory-edit',
+            'inventory-delete',
+
             'approve-leave',
         ];
 
@@ -503,6 +514,7 @@ class InstallationSeeder extends Seeder {
             ['name' => 'Staff Leave Management', 'is_default' => 0],
             ['name' => 'Fees Management', 'is_default' => 0],
             ['name' => 'Dormitory Management', 'is_default' => 0],
+            ['name' => 'Inventory Management', 'is_default' => 0],
         ];
 
         foreach ($features as $key => $feature) {

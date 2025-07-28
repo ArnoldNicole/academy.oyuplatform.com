@@ -167,6 +167,51 @@
             </li>
         @endcanany
 
+        {{-- inventory --}}
+        @canany(['inventory-create', 'inventory-list', 'inventory-edit', 'inventory-delete'])
+            <li class="nav-item">
+                <a class="nav-link" data-toggle="collapse" href="#inventory-menu" aria-expanded="false" aria-controls="inventory-menu" data-access="@hasFeatureAccess('Inventory Management')">
+                    <span class="menu-title">{{ __('inventory') }}</span>
+                    <i class="fa fa-boxes menu-icon"></i>
+                </a>
+                <div class="collapse" id="inventory-menu">
+                    <ul class="nav flex-column sub-menu">
+                        @can('inventory-list')
+                            <li class="nav-item">
+                                <a href="{{ route('inventory.dashboard') }}" class="nav-link" data-access="@hasFeatureAccess('Inventory Management')">
+                                    {{ __('dashboard') }}
+                                </a>
+                            </li>
+                        @endcan
+                        
+                        @can('inventory-list')
+                            <li class="nav-item">
+                                <a href="{{ route('inventory.index') }}" class="nav-link" data-access="@hasFeatureAccess('Inventory Management')">
+                                    {{ __('manage_inventory') }}
+                                </a>
+                            </li>
+                        @endcan
+
+                        @can('inventory-create')
+                            <li class="nav-item">
+                                <a href="{{ route('inventory.create') }}" class="nav-link" data-access="@hasFeatureAccess('Inventory Management')">
+                                    {{ __('add_item') }}
+                                </a>
+                            </li>
+                        @endcan
+
+                        @can('inventory-list')
+                            <li class="nav-item">
+                                <a href="{{ route('inventory.transactions') }}" class="nav-link" data-access="@hasFeatureAccess('Inventory Management')">
+                                    {{ __('transaction_history') }}
+                                </a>
+                            </li>
+                        @endcan
+                    </ul>
+                </div>
+            </li>
+        @endcanany
+
         {{-- timetable --}}
         @if(Auth::user()->hasRole('Teacher'))
             <li class="nav-item">

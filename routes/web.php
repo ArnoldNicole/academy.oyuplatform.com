@@ -23,6 +23,7 @@ use App\Http\Controllers\GuardianController;
 use App\Http\Controllers\GuidanceController;
 use App\Http\Controllers\HolidayController;
 use App\Http\Controllers\InstallerController;
+use App\Http\Controllers\InventoryController;
 use App\Http\Controllers\LanguageController;
 use App\Http\Controllers\LeaveController;
 use App\Http\Controllers\LeaveMasterController;
@@ -202,6 +203,19 @@ Route::group(['middleware' => ['Role', 'auth', 'checkSchoolStatus', 'status']], 
             Route::post('/allocations/{allocation}/transfer', [DormitoryController::class, 'transfer'])->name('dormitories.transfer');
         });
         Route::resource('dormitories', DormitoryController::class);
+
+        /*** Inventory ***/
+        Route::group(['prefix' => 'inventory'], static function () {
+            Route::get('/dashboard', [InventoryController::class, 'dashboard'])->name('inventory.dashboard');
+            Route::get('/transactions', [InventoryController::class, 'transactions'])->name('inventory.transactions');
+            Route::get('/{inventory}/adjust-stock', [InventoryController::class, 'adjustStock'])->name('inventory.adjust-stock');
+            Route::post('/{inventory}/adjust-stock', [InventoryController::class, 'processStockAdjustment'])->name('inventory.process-adjustment');
+            Route::get('/{inventory}/issue-stock', [InventoryController::class, 'issueStock'])->name('inventory.issue-stock');
+            Route::post('/{inventory}/issue-stock', [InventoryController::class, 'processStockIssue'])->name('inventory.process-issue');
+            Route::get('/{inventory}/add-stock', [InventoryController::class, 'addStock'])->name('inventory.add-stock');
+            Route::post('/{inventory}/add-stock', [InventoryController::class, 'processAddStock'])->name('inventory.process-add');
+        });
+        Route::resource('inventory', InventoryController::class);
 
         /*** Timetable ***/
         Route::group(['prefix' => 'timetable'], static function () {
